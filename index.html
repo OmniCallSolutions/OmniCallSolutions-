@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OmniCall Solutions — AI Call Assistant</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <span class="brand-name">OmniCall Solutions</span>
+</header>
+
+<section class="hero">
+  <h1>[YOUR HEADING GOES HERE]</h1>
+  <p class="subheading">[YOUR SUBHEADING GOES HERE]</p>
+</section>
+
+<section class="pricing" id="pricing">
+
+  <div class="card starter">
+    <div class="badge">🟢 STARTER</div>
+    <h3>[Plan Name]</h3>
+    <p class="price">$149 One-Time Setup</p>
+    <p class="price">$99 / Month</p>
+    <ul>
+      <li>[Feature 1]</li>
+      <li>[Feature 2]</li>
+      <li>[Feature 3]</li>
+    </ul>
+    <button class="checkout-btn" data-plan="starter">Get Started</button>
+  </div>
+
+  <div class="card gold">
+    <div class="badge">🟡 GOLD</div>
+    <h3>[Plan Name]</h3>
+    <p class="price">$249 One-Time Setup</p>
+    <p class="price">$199 / Month</p>
+    <ul>
+      <li>[Feature 1]</li>
+      <li>[Feature 2]</li>
+      <li>[Feature 3]</li>
+    </ul>
+    <button class="checkout-btn" data-plan="gold">Choose Gold</button>
+  </div>
+
+</section>
+
+<section class="newsletter">
+  <h2>Stay updated</h2>
+  <form id="subscribeForm">
+    <input type="email" id="subscriberEmail" placeholder="Enter your email" required>
+    <button type="submit">Subscribe</button>
+  </form>
+  <p id="subscribeMsg"></p>
+</section>
+
+<footer>
+  <a href="privacy.html">Privacy Policy</a> |
+  <a href="terms.html">Terms of Service</a> |
+  <a href="refund.html">Refund Policy</a>
+  <p>&copy; 2026 OmniCall Solutions. All rights reserved.</p>
+</footer>
+
+<script>
+  document.getElementById('subscribeForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    document.getElementById('subscribeMsg').textContent = "Thanks for subscribing!";
+  });
+</script>
+
+</body>
+</html>
