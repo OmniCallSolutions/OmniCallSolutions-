@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,6 +18,10 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@500;600;700;800&display=swap"
         rel="stylesheet">
+
+  <!-- Paddle.js -->
+  <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
+
 </head>
 
 <body>
@@ -84,7 +89,9 @@
 
       <div class="email-highlight">
         <span class="email-icon">✉</span>
-        <strong>Receive a detailed email notification within seconds after the call ends.</strong>
+        <strong>
+          Receive a detailed email notification within seconds after the call ends.
+        </strong>
       </div>
 
       <div class="business-tags">
@@ -353,7 +360,9 @@
     <div class="pricing-grid">
 
 
-      <!-- STARTER -->
+      <!-- =========================
+           STARTER
+      ========================= -->
 
       <div class="pricing-card">
 
@@ -409,15 +418,21 @@
           Additional usage: $0.40/minute
         </p>
 
-        <a href="mailto:tahirabbasi@gmail.com?subject=OmniCall%20Solutions%20-%20Starter%20Plan"
-           class="plan-button">
+        <button
+          type="button"
+          class="plan-button"
+          onclick="openPaddleCheckout('starter')">
+
           Get Started
-        </a>
+
+        </button>
 
       </div>
 
 
-      <!-- GOLD -->
+      <!-- =========================
+           GOLD
+      ========================= -->
 
       <div class="pricing-card popular">
 
@@ -479,15 +494,21 @@
           Additional usage: $0.35/minute
         </p>
 
-        <a href="mailto:tahirabbasi@gmail.com?subject=OmniCall%20Solutions%20-%20Gold%20Plan"
-           class="plan-button gold-button">
+        <button
+          type="button"
+          class="plan-button gold-button"
+          onclick="openPaddleCheckout('gold')">
+
           Choose Gold
-        </a>
+
+        </button>
 
       </div>
 
 
-      <!-- PREMIUM -->
+      <!-- =========================
+           PREMIUM
+      ========================= -->
 
       <div class="pricing-card premium-card">
 
@@ -545,17 +566,23 @@
           Additional usage: $0.30/minute
         </p>
 
-        <a href="mailto:tahirabbasi@gmail.com?subject=OmniCall%20Solutions%20-%20Premium%20Plan"
-           class="plan-button premium-button">
+        <button
+          type="button"
+          class="plan-button premium-button"
+          onclick="openPaddleCheckout('premium')">
+
           Get Premium
-        </a>
+
+        </button>
 
       </div>
 
     </div>
 
 
-    <!-- CUSTOM PLAN -->
+    <!-- =========================
+         CUSTOM PLAN
+    ========================= -->
 
     <div class="custom-plan">
 
@@ -579,7 +606,9 @@
 
       <a href="mailto:tahirabbasi@gmail.com?subject=OmniCall%20Solutions%20-%20Custom%20Plan"
          class="custom-button">
+
         Request Custom Plan
+
       </a>
 
     </div>
@@ -724,5 +753,119 @@
 
 </footer>
 
+
+<!-- =========================
+     PADDLE CHECKOUT
+========================= -->
+
+<script>
+
+  /*
+   * Initialize Paddle.js
+   *
+   * This is your LIVE client-side token.
+   */
+
+  Paddle.Initialize({
+    token: "live_25ad9c46ac473e727a642ba2e08"
+  });
+
+
+  /*
+   * OmniCall Solutions Paddle Price IDs
+   *
+   * Each plan contains:
+   * 1. One-time setup price
+   * 2. Monthly recurring price
+   */
+
+  const paddlePlans = {
+
+    starter: [
+
+      {
+        priceId: "pri_01kzsxm2bp47r7x2cq9z26devs",
+        quantity: 1
+      },
+
+      {
+        priceId: "pri_01kzrz54vf4r28bfrfs0z8bwb5",
+        quantity: 1
+      }
+
+    ],
+
+
+    gold: [
+
+      {
+        priceId: "pri_01kzsy0cjm9pkh0nvsnhybmgf8",
+        quantity: 1
+      },
+
+      {
+        priceId: "pri_01kzryt628a91m63zyeebcfx1w",
+        quantity: 1
+      }
+
+    ],
+
+
+    premium: [
+
+      {
+        priceId: "pri_01kzsyk1nrt7c4sgym0dyz77yp",
+        quantity: 1
+      },
+
+      {
+        priceId: "pri_01kzsyhbb6en26h2j9twag5x7m",
+        quantity: 1
+      }
+
+    ]
+
+  };
+
+
+  /*
+   * Open Paddle Checkout
+   */
+
+  function openPaddleCheckout(plan) {
+
+    const items = paddlePlans[plan];
+
+    if (!items) {
+
+      console.error("Invalid Paddle plan:", plan);
+
+      return;
+
+    }
+
+
+    Paddle.Checkout.open({
+
+      settings: {
+
+        displayMode: "overlay",
+
+        theme: "light",
+
+        locale: "en"
+
+      },
+
+      items: items
+
+    });
+
+  }
+
+</script>
+
+
 </body>
 </html>
+```
