@@ -966,3 +966,13 @@ footer {
   }
 
 }
+/* Keep all pricing buttons aligned at the bottom
+   without changing the existing card design */
+.pricing-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.pricing-card .plan-button {
+  margin-top: auto;
+}
