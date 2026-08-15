@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
   <meta charset="UTF-8">
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,9 +22,344 @@
   <!-- Paddle.js -->
   <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
 
+  <!-- =========================
+       PHONE NUMBER SECTION STYLES
+       ========================= -->
+  <style>
+
+    .phone-requirements-section {
+      padding: 100px 20px;
+      background: #f5faff;
+    }
+
+    .phone-requirements-container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .phone-requirements-heading {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .phone-requirements-heading h2 {
+      margin-top: 12px;
+      margin-bottom: 18px;
+    }
+
+    .phone-requirements-heading p {
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+
+    .phone-requirements-card {
+      background: #ffffff;
+      border: 1px solid #dce5ec;
+      border-radius: 22px;
+      padding: 40px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    }
+
+    .phone-requirements-card h3 {
+      margin-top: 0;
+      margin-bottom: 15px;
+    }
+
+    .phone-requirements-card > p {
+      line-height: 1.8;
+      margin-bottom: 28px;
+    }
+
+    .phone-number-options {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin: 30px 0;
+    }
+
+    .phone-number-option {
+      border: 1px solid #dce5ec;
+      border-radius: 16px;
+      padding: 24px;
+      background: #fbfdff;
+    }
+
+    .phone-number-option h4 {
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+
+    .phone-number-option p {
+      margin: 0;
+      line-height: 1.7;
+    }
+
+    .regulatory-details {
+      margin-top: 30px;
+      border-top: 1px solid #dce5ec;
+      padding-top: 25px;
+    }
+
+    .regulatory-details summary {
+      cursor: pointer;
+      list-style: none;
+      display: inline-block;
+      background: #0b5f91;
+      color: #ffffff;
+      padding: 14px 24px;
+      border-radius: 10px;
+      font-weight: 700;
+      transition: 0.2s ease;
+    }
+
+    .regulatory-details summary:hover {
+      opacity: 0.92;
+    }
+
+    .regulatory-details summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .regulatory-content {
+      margin-top: 25px;
+      background: #f8fbfd;
+      border: 1px solid #e0e8ee;
+      border-radius: 16px;
+      padding: 28px;
+    }
+
+    .regulatory-content h4 {
+      margin-top: 0;
+      margin-bottom: 15px;
+    }
+
+    .regulatory-content ul {
+      margin: 0;
+      padding-left: 24px;
+    }
+
+    .regulatory-content li {
+      margin-bottom: 12px;
+      line-height: 1.7;
+    }
+
+    .regulatory-note {
+      margin-top: 22px;
+      line-height: 1.7;
+      font-size: 0.95rem;
+    }
+
+    .number-assistance-area {
+      text-align: center;
+      margin-top: 38px;
+    }
+
+    .number-assistance-area h3 {
+      margin-bottom: 10px;
+    }
+
+    .number-assistance-area p {
+      max-width: 720px;
+      margin: 0 auto 22px;
+      line-height: 1.7;
+    }
+
+    .number-assistance-button {
+      border: none;
+      cursor: pointer;
+      background: #0b5f91;
+      color: #ffffff;
+      padding: 15px 30px;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 700;
+      font-family: inherit;
+      transition: 0.2s ease;
+    }
+
+    .number-assistance-button:hover {
+      opacity: 0.92;
+      transform: translateY(-1px);
+    }
+
+    .number-inquiry-panel {
+      display: none;
+      margin-top: 30px;
+      text-align: left;
+      background: #ffffff;
+      border: 1px solid #dce5ec;
+      border-radius: 20px;
+      padding: 32px;
+    }
+
+    .number-inquiry-panel.active {
+      display: block;
+    }
+
+    .number-inquiry-panel h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+
+    .number-inquiry-intro {
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+
+    .number-inquiry-form {
+      width: 100%;
+    }
+
+    .number-form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .number-form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .number-form-field.full-width {
+      grid-column: 1 / -1;
+    }
+
+    .number-form-field label {
+      font-weight: 600;
+      color: #18334a;
+    }
+
+    .number-form-field input,
+    .number-form-field select,
+    .number-form-field textarea {
+      width: 100%;
+      box-sizing: border-box;
+      border: 1px solid #ccd8e1;
+      border-radius: 9px;
+      padding: 13px 14px;
+      font-family: inherit;
+      font-size: 0.98rem;
+      background: #ffffff;
+      color: #18334a;
+      outline: none;
+    }
+
+    .number-form-field input:focus,
+    .number-form-field select:focus,
+    .number-form-field textarea:focus {
+      border-color: #0b5f91;
+      box-shadow: 0 0 0 2px rgba(11,95,145,0.10);
+    }
+
+    .number-form-field textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    .number-checkbox-group {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 4px;
+    }
+
+    .number-checkbox-label {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-weight: 500;
+      line-height: 1.5;
+    }
+
+    .number-checkbox-label input {
+      width: auto;
+      margin-top: 4px;
+      flex-shrink: 0;
+    }
+
+    .number-submit-area {
+      margin-top: 25px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .number-submit-button {
+      border: none;
+      cursor: pointer;
+      background: #0b5f91;
+      color: #ffffff;
+      padding: 14px 28px;
+      border-radius: 9px;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .number-submit-button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .number-form-result {
+      font-weight: 600;
+      line-height: 1.5;
+    }
+
+    .number-form-result.success {
+      color: #167347;
+    }
+
+    .number-form-result.error {
+      color: #b42318;
+    }
+
+    .number-form-small-note {
+      margin-top: 18px;
+      font-size: 0.88rem;
+      line-height: 1.6;
+      color: #647789;
+    }
+
+    @media (max-width: 800px) {
+
+      .phone-requirements-section {
+        padding: 75px 18px;
+      }
+
+      .phone-requirements-card {
+        padding: 28px 20px;
+      }
+
+      .phone-number-options {
+        grid-template-columns: 1fr;
+      }
+
+      .number-form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .number-form-field.full-width {
+        grid-column: auto;
+      }
+
+      .number-inquiry-panel {
+        padding: 24px 18px;
+      }
+
+    }
+
+  </style>
+
 </head>
 
+
 <body>
+
 
 <!-- =========================
      NAVIGATION
@@ -329,6 +665,576 @@
 </section>
 
 
+<!-- ==========================================================
+     BUSINESS PHONE NUMBERS & REGULATORY REQUIREMENTS
+     NEW SECTION - PLACED BEFORE PRICING
+========================================================== -->
+
+<section class="phone-requirements-section" id="phone-requirements">
+
+  <div class="phone-requirements-container">
+
+    <div class="phone-requirements-heading">
+
+      <span class="section-label">
+        PHONE NUMBER REQUIREMENTS
+      </span>
+
+      <h2>
+        Business Phone Numbers & Regulatory Requirements
+      </h2>
+
+      <p>
+        If your AI voice solution requires a new business phone number,
+        the number may be subject to country-specific regulatory,
+        verification and eligibility requirements before it can be
+        provisioned.
+      </p>
+
+    </div>
+
+
+    <div class="phone-requirements-card">
+
+      <h3>
+        Before requesting a business number
+      </h3>
+
+      <p>
+        OmniCall Solutions can guide you through the number-selection
+        and compliance process. Requirements vary according to the
+        country, number type and telecommunications provider.
+      </p>
+
+
+      <div class="phone-number-options">
+
+
+        <div class="phone-number-option">
+
+          <h4>
+            Local Numbers
+          </h4>
+
+          <p>
+            Local business numbers may be available for eligible
+            businesses, subject to the applicable country and provider
+            requirements.
+          </p>
+
+        </div>
+
+
+        <div class="phone-number-option">
+
+          <h4>
+            National Numbers
+          </h4>
+
+          <p>
+            National numbers can provide a broader business presence
+            where supported by the selected country and provider.
+            Eligibility and documentation may apply.
+          </p>
+
+        </div>
+
+
+        <div class="phone-number-option">
+
+          <h4>
+            Toll-Free & Special Numbers
+          </h4>
+
+          <p>
+            Toll-free, premium, vanity or other special number types
+            may have additional requirements or costs. If you require
+            such a number, you may purchase it directly and we can
+            assist you with the integration process.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- =========================
+           EXPANDABLE REGULATORY INFORMATION
+      ========================= -->
+
+      <details class="regulatory-details">
+
+        <summary>
+          View Regulatory Requirements
+        </summary>
+
+        <div class="regulatory-content">
+
+          <h4>
+            What you should be prepared for
+          </h4>
+
+          <ul>
+
+            <li>
+              Requirements vary by country and by phone-number type.
+            </li>
+
+            <li>
+              The telecommunications provider may need to verify the
+              actual business or end user of the number.
+            </li>
+
+            <li>
+              Depending on the country and number type, information
+              may include business name, business address, registration
+              details, authorized representative information, identity
+              documents or other supporting documents.
+            </li>
+
+            <li>
+              Some countries or number types may require a local
+              address or other local eligibility conditions.
+            </li>
+
+            <li>
+              Additional regulatory documentation may be requested
+              during the provider's review process.
+            </li>
+
+            <li>
+              Number availability and approval are determined by the
+              telecommunications provider and applicable country rules.
+            </li>
+
+            <li>
+              Providing documents does not guarantee approval or
+              availability of a particular number.
+            </li>
+
+          </ul>
+
+
+          <p class="regulatory-note">
+            <strong>Important:</strong>
+            Regulatory information can change. The information above
+            is provided as general guidance and does not replace the
+            current requirements shown by the phone-number provider
+            for the selected country and number type.
+          </p>
+
+        </div>
+
+      </details>
+
+
+      <!-- =========================
+           NUMBER ASSISTANCE
+      ========================= -->
+
+      <div class="number-assistance-area">
+
+        <h3>
+          Need a Business Number?
+        </h3>
+
+        <p>
+          Tell us what you need and we will review your requirements
+          and guide you through the appropriate phone-number and
+          compliance process.
+        </p>
+
+        <button
+          type="button"
+          class="number-assistance-button"
+          onclick="toggleNumberInquiry()">
+
+          Request Number Assistance
+
+        </button>
+
+
+        <!-- =========================
+             HIDDEN INQUIRY FORM
+        ========================= -->
+
+        <div
+          id="numberInquiryPanel"
+          class="number-inquiry-panel">
+
+          <h3>
+            Tell Us What You Need
+          </h3>
+
+          <p class="number-inquiry-intro">
+            Complete this short inquiry and we will review your
+            requirements. Please do not upload identity or business
+            documents through this form. If such documents are required,
+            we will guide you through the appropriate provider process.
+          </p>
+
+
+          <form
+            id="numberInquiryForm"
+            class="number-inquiry-form">
+
+            <!-- Web3Forms Access Key -->
+            <input
+              type="hidden"
+              name="access_key"
+              value="454e0046-a77f-4126-849b-972690b9bb14">
+
+            <input
+              type="hidden"
+              name="subject"
+              value="OmniCall Solutions - Business Number Inquiry">
+
+            <input
+              type="hidden"
+              name="from_name"
+              value="OmniCall Solutions Website">
+
+            <!-- Honeypot -->
+            <input
+              type="checkbox"
+              name="botcheck"
+              style="display:none;">
+
+            <div class="number-form-grid">
+
+
+              <!-- NAME -->
+
+              <div class="number-form-field">
+
+                <label for="inquiryName">
+                  Your Name *
+                </label>
+
+                <input
+                  type="text"
+                  id="inquiryName"
+                  name="name"
+                  placeholder="Your full name"
+                  required>
+
+              </div>
+
+
+              <!-- BUSINESS NAME -->
+
+              <div class="number-form-field">
+
+                <label for="inquiryBusinessName">
+                  Business Name *
+                </label>
+
+                <input
+                  type="text"
+                  id="inquiryBusinessName"
+                  name="business_name"
+                  placeholder="Your business name"
+                  required>
+
+              </div>
+
+
+              <!-- EMAIL -->
+
+              <div class="number-form-field">
+
+                <label for="inquiryEmail">
+                  Email Address *
+                </label>
+
+                <input
+                  type="email"
+                  id="inquiryEmail"
+                  name="email"
+                  placeholder="you@example.com"
+                  required>
+
+              </div>
+
+
+              <!-- PHONE -->
+
+              <div class="number-form-field">
+
+                <label for="inquiryPhone">
+                  Contact Phone / WhatsApp
+                </label>
+
+                <input
+                  type="tel"
+                  id="inquiryPhone"
+                  name="phone"
+                  placeholder="Optional">
+
+              </div>
+
+
+              <!-- COUNTRY -->
+
+              <div class="number-form-field">
+
+                <label for="inquiryCountry">
+                  Country Where Number Is Required *
+                </label>
+
+                <select
+                  id="inquiryCountry"
+                  name="country"
+                  required>
+
+                  <option value="">
+                    Select country
+                  </option>
+
+                  <option value="United States">
+                    United States
+                  </option>
+
+                  <option value="United Kingdom">
+                    United Kingdom
+                  </option>
+
+                  <option value="Germany">
+                    Germany
+                  </option>
+
+                  <option value="Australia">
+                    Australia
+                  </option>
+
+                  <option value="Canada">
+                    Canada
+                  </option>
+
+                  <option value="France">
+                    France
+                  </option>
+
+                  <option value="United Arab Emirates">
+                    United Arab Emirates
+                  </option>
+
+                  <option value="Saudi Arabia">
+                    Saudi Arabia
+                  </option>
+
+                  <option value="Pakistan">
+                    Pakistan
+                  </option>
+
+                  <option value="Other">
+                    Other
+                  </option>
+
+                </select>
+
+              </div>
+
+
+              <!-- NUMBER TYPE -->
+
+              <div class="number-form-field">
+
+                <label for="inquiryNumberType">
+                  Number Type Required *
+                </label>
+
+                <select
+                  id="inquiryNumberType"
+                  name="number_type"
+                  required>
+
+                  <option value="">
+                    Select number type
+                  </option>
+
+                  <option value="Local">
+                    Local
+                  </option>
+
+                  <option value="National">
+                    National
+                  </option>
+
+                  <option value="Toll-Free">
+                    Toll-Free
+                  </option>
+
+                  <option value="Special / Other">
+                    Special / Other
+                  </option>
+
+                  <option value="Not Sure">
+                    Not Sure - Need Guidance
+                  </option>
+
+                </select>
+
+              </div>
+
+
+              <!-- EXISTING NUMBER -->
+
+              <div class="number-form-field full-width">
+
+                <label for="inquiryExistingNumber">
+                  Do you already have an existing business phone number?
+                </label>
+
+                <select
+                  id="inquiryExistingNumber"
+                  name="existing_number">
+
+                  <option value="">
+                    Please select
+                  </option>
+
+                  <option value="Yes - I want to use my existing number">
+                    Yes - I want to use my existing number
+                  </option>
+
+                  <option value="Yes - I am considering another option">
+                    Yes - I am considering another option
+                  </option>
+
+                  <option value="No - I need a new number">
+                    No - I need a new number
+                  </option>
+
+                  <option value="Not Sure">
+                    Not Sure - Need Guidance
+                  </option>
+
+                </select>
+
+              </div>
+
+
+              <!-- COMPLIANCE QUESTIONS -->
+
+              <div class="number-form-field full-width">
+
+                <label>
+                  Regulatory & Documentation Readiness
+                </label>
+
+                <div class="number-checkbox-group">
+
+
+                  <label class="number-checkbox-label">
+
+                    <input
+                      type="checkbox"
+                      name="read_regulatory_information"
+                      value="Yes - I have read the regulatory information">
+
+                    <span>
+                      I have read the regulatory information above.
+                    </span>
+
+                  </label>
+
+
+                  <label class="number-checkbox-label">
+
+                    <input
+                      type="checkbox"
+                      name="ready_for_business_information"
+                      value="Yes - I am prepared to provide required business information">
+
+                    <span>
+                      I understand that the provider may require
+                      business address, registration, authorized
+                      representative or other business information.
+                    </span>
+
+                  </label>
+
+
+                  <label class="number-checkbox-label">
+
+                    <input
+                      type="checkbox"
+                      name="ready_for_identity_verification"
+                      value="Yes - I understand identity/supporting documents may be required">
+
+                    <span>
+                      I understand that identity verification or
+                      supporting documents may be required depending
+                      on the country and number type.
+                    </span>
+
+                  </label>
+
+                </div>
+
+              </div>
+
+
+              <!-- CONCERNS -->
+
+              <div class="number-form-field full-width">
+
+                <label for="inquiryConcerns">
+                  Questions, Concerns or Additional Requirements
+                </label>
+
+                <textarea
+                  id="inquiryConcerns"
+                  name="concerns"
+                  placeholder="Tell us about your requirements, concerns about documentation, number type, country eligibility, existing number, or anything else you would like us to know."></textarea>
+
+              </div>
+
+
+            </div>
+
+
+            <div class="number-submit-area">
+
+              <button
+                type="submit"
+                id="numberInquirySubmit"
+                class="number-submit-button">
+
+                Send Inquiry
+
+              </button>
+
+              <div
+                id="numberInquiryResult"
+                class="number-form-result"
+                aria-live="polite">
+              </div>
+
+            </div>
+
+
+            <p class="number-form-small-note">
+              Please do not send passwords, payment information,
+              identity documents or other sensitive documents through
+              this inquiry form. If documentation is required, we will
+              explain the appropriate process separately.
+            </p>
+
+          </form>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
 <!-- =========================
      PRICING
 ========================= -->
@@ -378,8 +1284,11 @@
         </p>
 
         <div class="setup-price">
+
           <strong>$149</strong>
+
           <span>one-time setup</span>
+
         </div>
 
         <div class="monthly-price">
@@ -387,8 +1296,11 @@
         </div>
 
         <div class="minutes">
+
           <strong>300 minutes</strong>
+
           included monthly
+
         </div>
 
         <ul class="features">
@@ -449,8 +1361,11 @@
         </p>
 
         <div class="setup-price">
+
           <strong>$249</strong>
+
           <span>one-time setup</span>
+
         </div>
 
         <div class="monthly-price">
@@ -458,8 +1373,11 @@
         </div>
 
         <div class="minutes">
+
           <strong>700 minutes</strong>
+
           included monthly
+
         </div>
 
         <ul class="features">
@@ -522,8 +1440,11 @@
         </p>
 
         <div class="setup-price">
+
           <strong>$399</strong>
+
           <span>one-time setup</span>
+
         </div>
 
         <div class="monthly-price">
@@ -531,8 +1452,11 @@
         </div>
 
         <div class="minutes">
+
           <strong>1,200 minutes</strong>
+
           included monthly
+
         </div>
 
         <ul class="features">
@@ -609,8 +1533,9 @@
 
       </div>
 
-      <a href="mailto:tahirabbasi85@gmail.com?subject=OmniCall%20Solutions%20-%20Custom%20Plan"
-         class="custom-button">
+      <a
+        href="mailto:tahirabbasi85@gmail.com?subject=OmniCall%20Solutions%20-%20Custom%20Plan"
+        class="custom-button">
 
         Request Custom Plan
 
@@ -618,10 +1543,13 @@
 
     </div>
 
+
     <p class="pricing-disclaimer">
+
       Third-party software subscriptions, premium CRM plans, and other
       external services are not included unless specifically agreed upon
       in advance.
+
     </p>
 
   </div>
@@ -665,8 +1593,12 @@
       Call Now: +1 (239) 506-2748
     </a>
 
-    <a href="mailto:tahirabbasi85@gmail.com" class="email-button">
+    <a
+      href="mailto:tahirabbasi85@gmail.com"
+      class="email-button">
+
       ✉ Get in Touch
+
     </a>
 
   </div>
@@ -697,8 +1629,12 @@
         View Plans
       </a>
 
-      <a href="tel:+12395062748" class="secondary-button">
+      <a
+        href="tel:+12395062748"
+        class="secondary-button">
+
         Try AI Demo
+
       </a>
 
     </div>
@@ -766,7 +1702,147 @@
 
 
 <!-- =========================
+     PHONE INQUIRY FORM SCRIPT
+========================= -->
+
+<script>
+
+  function toggleNumberInquiry() {
+
+    const panel = document.getElementById("numberInquiryPanel");
+
+    const button = document.querySelector(".number-assistance-button");
+
+    if (panel.classList.contains("active")) {
+
+      panel.classList.remove("active");
+
+      button.textContent = "Request Number Assistance";
+
+    } else {
+
+      panel.classList.add("active");
+
+      button.textContent = "Close Inquiry Form";
+
+      setTimeout(function() {
+
+        panel.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+
+      }, 100);
+
+    }
+
+  }
+
+
+  const numberInquiryForm =
+    document.getElementById("numberInquiryForm");
+
+  const numberInquiryResult =
+    document.getElementById("numberInquiryResult");
+
+  const numberInquirySubmit =
+    document.getElementById("numberInquirySubmit");
+
+
+  numberInquiryForm.addEventListener("submit", async function(event) {
+
+    event.preventDefault();
+
+
+    numberInquirySubmit.disabled = true;
+
+    numberInquirySubmit.textContent = "Sending...";
+
+    numberInquiryResult.className = "number-form-result";
+
+    numberInquiryResult.textContent =
+      "Please wait while we send your inquiry.";
+
+
+    const formData =
+      new FormData(numberInquiryForm);
+
+
+    const formObject =
+      Object.fromEntries(formData.entries());
+
+
+    try {
+
+      const response = await fetch(
+        "https://api.web3forms.com/submit",
+        {
+          method: "POST",
+
+          headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+          },
+
+          body: JSON.stringify(formObject)
+        }
+      );
+
+
+      const result =
+        await response.json();
+
+
+      if (result.success) {
+
+        numberInquiryResult.className =
+          "number-form-result success";
+
+        numberInquiryResult.textContent =
+          "Thank you. Your inquiry has been received. We will review your requirements and get in touch with you.";
+
+        numberInquiryForm.reset();
+
+      } else {
+
+        numberInquiryResult.className =
+          "number-form-result error";
+
+        numberInquiryResult.textContent =
+          result.message ||
+          "We could not send your inquiry. Please try again.";
+
+      }
+
+    } catch (error) {
+
+      console.error(
+        "Number inquiry submission error:",
+        error
+      );
+
+      numberInquiryResult.className =
+        "number-form-result error";
+
+      numberInquiryResult.textContent =
+        "Something went wrong while sending your inquiry. Please try again.";
+
+    }
+
+
+    numberInquirySubmit.disabled = false;
+
+    numberInquirySubmit.textContent =
+      "Send Inquiry";
+
+  });
+
+</script>
+
+
+<!-- =========================
      PADDLE CHECKOUT
+     EXISTING CODE - PRESERVED
 ========================= -->
 
 <script>
@@ -847,9 +1923,13 @@
 
     const items = paddlePlans[plan];
 
+
     if (!items) {
 
-      console.error("Invalid Paddle plan:", plan);
+      console.error(
+        "Invalid Paddle plan:",
+        plan
+      );
 
       return;
 
