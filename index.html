@@ -21,6 +21,11 @@
 
   <!-- Paddle.js -->
   <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
+  <script
+  src="https://unpkg.com/@vapi-ai/client-sdk-react/dist/embed/widget.umd.js"
+  async
+  type="text/javascript">
+</script>
 
   <!-- =========================
        PHONE NUMBER SECTION STYLES
@@ -1600,6 +1605,31 @@
       ✉ Get in Touch
 
     </a>
+    <!-- =========================
+     VAPI AI CHAT + VOICE
+========================= -->
+
+<div class="vapi-demo-area">
+
+  <h3>Chat With Our AI Team</h3>
+
+  <p>
+    Have a question about OmniCall Solutions?
+    Chat with our AI assistant or use voice to speak with it directly.
+  </p>
+
+  <vapi-widget
+    public-key="545045dc-0a8c-4091-b8fb-c319d3aa250f"
+    assistant-id="e357020d-94f7-4073-a532-573f6a0b037f"
+    mode="chat"
+    theme="light"
+    size="full"
+    radius="large"
+    main-label="Talk to OmniCall AI"
+    empty-chat-message="Hello! How can we help you today?"
+    start-button-text="Talk by Voice"
+    end-button-text="End Voice">
+  </vapi-widget>
 
   </div>
 
